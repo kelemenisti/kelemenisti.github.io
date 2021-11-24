@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import MainConcepts from './mainConcepts/MainConcepts';
+import ConditionalRendering from './conditionalRendering/ConditionalRendering';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <MainConcepts />
+    <ConditionalRendering />
   );
 }
 
