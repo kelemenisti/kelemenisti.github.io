@@ -11,19 +11,18 @@ function ListsAndKeys() {
   };
 
   return (
-    <>
-      <div>
-        {values.map((d) => (
-          <h1
-            key={d}
-            onClick={() => {
-              deleteItem(d);
-            }}>
-            {d}
-          </h1>
-        ))}
-      </div>
-    </>
+    <div style={{ margin: '20px' }}>
+      {values.map((d) => (
+        <h1
+          key={d}
+          style={{ width: '43px', border: '5px solid red' }}
+          onClick={() => {
+            deleteItem(d);
+          }}>
+          {d}
+        </h1>
+      ))}
+    </div>
   );
 }
 

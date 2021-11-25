@@ -10,7 +10,11 @@ function ConditionalRendering() {
     setIsLoggedIn(true);
   };
 
-  return <>{isLoggedin ? <HomePage name="Sarah" onLogout={onLogout} /> : <LoginPage onLogin={onLogin} />}</>;
+  return (
+    <div style={{ margin: '20px' }}>
+      {isLoggedin ? <HomePage name="Sarah" onLogout={onLogout} /> : <LoginPage onLogin={onLogin} />}
+    </div>
+  );
 }
 
 interface HomePageProps {
@@ -25,7 +29,7 @@ interface LoginPageProps {
 const HomePage: React.FC<HomePageProps> = ({ name, onLogout }) => {
   return (
     <>
-      <p>Welcome {name}!</p>
+      <h1>Welcome {name}!</h1>
       <button onClick={onLogout}>Logout</button>
     </>
   );
@@ -34,7 +38,7 @@ const HomePage: React.FC<HomePageProps> = ({ name, onLogout }) => {
 const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
   return (
     <>
-      <p>Please log in first.</p>
+      <h1>Please log in first.</h1>
       <button onClick={onLogin}>Login</button>
     </>
   );

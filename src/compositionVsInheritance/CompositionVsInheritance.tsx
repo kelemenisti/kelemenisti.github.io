@@ -2,12 +2,12 @@ import React from 'react';
 
 function CompositionVsInheritance() {
   return (
-    <>
+    <div style={{ margin: '20px' }}>
       <h1>Containment</h1>
       <Containment />
       <h1>Specialization</h1>
       <Specialization />
-    </>
+    </div>
   );
 }
 
@@ -41,12 +41,17 @@ const BorderContainer = (props: any) => {
   return (
     <div
       style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         width: '100px',
         height: '100px',
         borderWidth: '5px',
         borderColor: 'red',
         borderStyle: props.borderStyle || 'solid'
-      }}></div>
+      }}>
+      Content
+    </div>
   );
 };
 

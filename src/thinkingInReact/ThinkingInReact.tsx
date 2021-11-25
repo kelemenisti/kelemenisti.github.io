@@ -14,9 +14,9 @@ const data: Product[] = [
 
 function ThinkingInReact() {
   return (
-    <>
+    <div style={{ margin: '20px' }}>
       <FilterableProductTable data={data} />
-    </>
+    </div>
   );
 }
 
