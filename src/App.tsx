@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import ListsAndKeys from './listsAndKeys/ListsAndKeys';
+import CompositionVsInheritance from './compositionVsInheritance/CompositionVsInheritance';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <ListsAndKeys />
+    <CompositionVsInheritance />
   );
 }
 
