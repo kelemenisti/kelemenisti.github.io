@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import ConditionalRendering from './conditionalRendering/ConditionalRendering';
+import ListsAndKeys from './listsAndKeys/ListsAndKeys';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <ConditionalRendering />
+    <ListsAndKeys />
   );
 }
 
