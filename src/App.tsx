@@ -1,19 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Link, Route, Routes } from 'react-router-dom';
+import ConditionalRendering from './conditionalRendering/ConditionalRendering';
+import Home from './Home';
+import MainConcepts from './mainConcepts/MainConcepts';
+import ListsAndKeys from './listsAndKeys/ListsAndKeys';
+import CompositionVsInheritance from './compositionVsInheritance/CompositionVsInheritance';
+import ThinkingInReact from './thinkingInReact/ThinkingInReact';
+import Lifecycle from './lifecycle/Lifecycle';
+import Events from './events/Events';
+import Form from './form/Form';
+import LiftingStateUp from './state/LiftingStateUp';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <Link to="/">Home</Link> | <Link to="/main-concepts">Main Concepts</Link> |{' '}
+      <Link to="/conditional-rendering">Conditional Rendering </Link> | <Link to="/lifecycle">Lifecycles</Link> |{' '}
+      <Link to="/events">Events</Link> | <Link to="/form">Form</Link> | <Link to="/state">Lifting State Up</Link> |{' '}
+      <Link to="/lists">Lists</Link> | <Link to="/composition">Composition vs Inheritance</Link> |{' '}
+      <Link to="/example">Example</Link>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/main-concepts" element={<MainConcepts />} />
+          <Route path="/conditional-rendering" element={<ConditionalRendering />} />
+          <Route path="/lists" element={<ListsAndKeys />} />
+          <Route path="/lifecycle" element={<Lifecycle />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="/state" element={<LiftingStateUp />} />
+          <Route path="/composition" element={<CompositionVsInheritance />} />
+          <Route path="/example" element={<ThinkingInReact />} />
+        </Routes>
+      </div>
     </div>
   );
 }
