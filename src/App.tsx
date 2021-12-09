@@ -11,6 +11,7 @@ import Lifecycle from './lifecycle/Lifecycle';
 import Events from './events/Events';
 import Form from './form/Form';
 import LiftingStateUp from './state/LiftingStateUp';
+import { Hooks } from './hooks/Hooks';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <Link to="/conditional-rendering">Conditional Rendering </Link> | <Link to="/lifecycle">Lifecycles</Link> |{' '}
       <Link to="/events">Events</Link> | <Link to="/form">Form</Link> | <Link to="/state">Lifting State Up</Link> |{' '}
       <Link to="/lists">Lists</Link> | <Link to="/composition">Composition vs Inheritance</Link> |{' '}
-      <Link to="/example">Example</Link>
+      <Link to="/example">Example</Link> | <Link to="/hooks">Hooks</Link>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,6 +33,7 @@ function App() {
           <Route path="/state" element={<LiftingStateUp />} />
           <Route path="/composition" element={<CompositionVsInheritance />} />
           <Route path="/example" element={<ThinkingInReact />} />
+          <Route path="/hooks" element={<Hooks />} />
         </Routes>
       </div>
     </div>
