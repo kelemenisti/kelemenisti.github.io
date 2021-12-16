@@ -12,6 +12,8 @@ import Events from './events/Events';
 import Form from './form/Form';
 import LiftingStateUp from './state/LiftingStateUp';
 import { Hooks } from './hooks/Hooks';
+import { Context } from './context/Context';
+import { ErrorBoundary } from './ErrorBoundary';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
       <Link to="/events">Events</Link> | <Link to="/form">Form</Link> | <Link to="/state">Lifting State Up</Link> |{' '}
       <Link to="/lists">Lists</Link> | <Link to="/composition">Composition vs Inheritance</Link> |{' '}
       <Link to="/example">Example</Link> | <Link to="/hooks">Hooks</Link>
+      <br />
+      <Link to="/context">Context</Link> | <Link to="/error-boundary">Error Boundary</Link>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -34,6 +38,8 @@ function App() {
           <Route path="/composition" element={<CompositionVsInheritance />} />
           <Route path="/example" element={<ThinkingInReact />} />
           <Route path="/hooks" element={<Hooks />} />
+          <Route path="/context" element={<Context />} />
+          <Route path="/error-boundary" element={<ErrorBoundary />} />
         </Routes>
       </div>
     </div>
