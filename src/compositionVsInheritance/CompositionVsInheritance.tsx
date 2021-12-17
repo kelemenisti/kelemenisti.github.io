@@ -1,4 +1,5 @@
 import React from 'react';
+import HOCExample from './hoc/HOCExample';
 
 function CompositionVsInheritance() {
   return (
@@ -7,6 +8,8 @@ function CompositionVsInheritance() {
       <Containment />
       <h1>Specialization</h1>
       <Specialization />
+      <h1>HoC</h1>
+      <HOCExample />
     </div>
   );
 }
@@ -15,9 +18,9 @@ const Containment = () => {
   return (
     <Container>
       <ul>
-        <li key={1}>1</li>
-        <li key={1}>2</li>
-        <li key={1}>3</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
       </ul>
     </Container>
   );
