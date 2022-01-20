@@ -15,6 +15,9 @@ import Fragments from './fragments/Fragments';
 import { Hooks } from './hooks/Hooks';
 import { Context } from './context/Context';
 import { ErrorBoundary } from './ErrorBoundary';
+import { Portal } from './portal/Portal';
+import { PropType } from './proptypes/PropType';
+import { ForwardingRef } from './forwardingRef/ForwardingRef';
 
 function App() {
   return (
@@ -25,7 +28,9 @@ function App() {
       <Link to="/lists">Lists</Link> | <Link to="/composition">Composition vs Inheritance</Link> |{' '}
       <Link to="/example">Example</Link> | <Link to="/hooks">Hooks</Link> | <Link to="/fragments">Fragments</Link>
       <br />
-      <Link to="/context">Context</Link> | <Link to="/error-boundary">Error Boundary</Link>
+      <Link to="/context">Context</Link> | <Link to="/error-boundary">Error Boundary</Link> |{' '}
+      <Link to="/forwarding-ref">Forwarding Ref</Link> | <Link to="/portal">Portal</Link> |{' '}
+      <Link to="/prop-types">PropTypes</Link>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -42,6 +47,9 @@ function App() {
           <Route path="/fragments" element={<Fragments />} />
           <Route path="/context" element={<Context />} />
           <Route path="/error-boundary" element={<ErrorBoundary />} />
+          <Route path="/forwarding-ref" element={<ForwardingRef />} />
+          <Route path="/portal" element={<Portal />} />
+          <Route path="/prop-types" element={<PropType />} />
         </Routes>
       </div>
     </div>
