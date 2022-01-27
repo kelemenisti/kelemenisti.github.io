@@ -18,6 +18,7 @@ import { ErrorBoundary } from './ErrorBoundary';
 import { Portal } from './portal/Portal';
 import { PropType } from './proptypes/PropType';
 import { ForwardingRef } from './forwardingRef/ForwardingRef';
+import { StateManagement } from './stateManagement/StateManagement';
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       <br />
       <Link to="/context">Context</Link> | <Link to="/error-boundary">Error Boundary</Link> |{' '}
       <Link to="/forwarding-ref">Forwarding Ref</Link> | <Link to="/portal">Portal</Link> |{' '}
-      <Link to="/prop-types">PropTypes</Link>
+      <Link to="/prop-types">PropTypes | </Link>
+      <Link to="/state-management">State Management</Link>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -50,6 +52,7 @@ function App() {
           <Route path="/forwarding-ref" element={<ForwardingRef />} />
           <Route path="/portal" element={<Portal />} />
           <Route path="/prop-types" element={<PropType />} />
+          <Route path="/state-management" element={<StateManagement />} />
         </Routes>
       </div>
     </div>
