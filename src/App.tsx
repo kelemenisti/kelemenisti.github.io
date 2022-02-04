@@ -19,6 +19,7 @@ import { Portal } from './portal/Portal';
 import { PropType } from './proptypes/PropType';
 import { ForwardingRef } from './forwardingRef/ForwardingRef';
 import { StateManagement } from './stateManagement/StateManagement';
+import { FormValidation } from './formValidation/FormValidation';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
       <Link to="/context">Context</Link> | <Link to="/error-boundary">Error Boundary</Link> |{' '}
       <Link to="/forwarding-ref">Forwarding Ref</Link> | <Link to="/portal">Portal</Link> |{' '}
       <Link to="/prop-types">PropTypes | </Link>
-      <Link to="/state-management">State Management</Link>
+      <Link to="/state-management">State Management | </Link>
+      <Link to="/form-validation">Form Validation</Link>
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -53,6 +55,7 @@ function App() {
           <Route path="/portal" element={<Portal />} />
           <Route path="/prop-types" element={<PropType />} />
           <Route path="/state-management" element={<StateManagement />} />
+          <Route path="/form-validation" element={<FormValidation />} />
         </Routes>
       </div>
     </div>
