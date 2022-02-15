@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  Controller,
   FormProvider,
   SubmitErrorHandler,
   SubmitHandler,
@@ -7,6 +8,7 @@ import {
   useForm,
   useFormContext
 } from 'react-hook-form';
+import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 
 interface FormInput {
   name: string;
@@ -60,12 +62,23 @@ export function ReactHookForm() {
       <FormProvider {...methods}>
         {/*<Child />*/}
         <form onSubmit={handleSubmit(onSubmit, onError)}>
-          <input
-            {...register('name', {
+          <Controller
+            name={'name'}
+            control={control}
+            rules={{
               required: 'This is required!',
               pattern: { value: /^[A-Za-z]+$/, message: 'Only letters!' }
-            })}
-            placeholder={'name'}
+            }}
+            render={({ field, fieldState }) => (
+              <TextField
+                variant={'standard'}
+                value={field.value}
+                onChange={field.onChange}
+                inputRef={field.ref}
+                error={Boolean(fieldState.error)}
+                helperText={fieldState.error?.message || ''}
+              />
+            )}
           />
           <input
             type={'button'}
@@ -75,20 +88,40 @@ export function ReactHookForm() {
               setValue('age', currentValue + 1, { shouldValidate: true });
             }}
           />
-          <input
-            {...register('age', {
+          <Controller
+            name={'age'}
+            control={control}
+            rules={{
               required: 'This is required!',
               min: 18,
               max: 99,
               pattern: { value: /^[0-9]+$/, message: 'Only digits!' }
-            })}
-            placeholder={'age'}
+            }}
+            render={({ field, fieldState }) => (
+              <TextField
+                variant={'standard'}
+                value={field.value}
+                onChange={field.onChange}
+                inputRef={field.ref}
+                error={Boolean(fieldState.error)}
+                helperText={fieldState.error?.message || ''}
+              />
+            )}
           />
           {ageWatch > 35 && <input type={'checkbox'} />}
-          <select {...register('gender')}>
-            <option value="female">female</option>
-            <option value="male">male</option>
-          </select>
+          <Controller
+            name={'gender'}
+            control={control}
+            render={({ field }) => (
+              <FormControl variant={'standard'} sx={{ minWidth: '120px' }}>
+                <InputLabel>Gender select</InputLabel>
+                <Select value={field.value} onChange={field.onChange} inputRef={field.ref}>
+                  <MenuItem value={'female'}>female</MenuItem>
+                  <MenuItem value={'male'}>male</MenuItem>
+                </Select>
+              </FormControl>
+            )}
+          />
           <input type={'button'} value={'+'} onClick={() => append('')} />
           <div>
             {fields.map((field, index) => {
