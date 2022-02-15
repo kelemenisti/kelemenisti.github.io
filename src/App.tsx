@@ -34,7 +34,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Button onClick={() => toggleDrawer(true)}>Menu</Button>
         <Drawer open={open} anchor={'left'} onClose={() => toggleDrawer(false)}>
-          <List>
+          <List onClick={() => toggleDrawer(false)}>
             <ListItem>
               <Link to="/">Home</Link>
             </ListItem>
