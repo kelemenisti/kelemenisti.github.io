@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Controller,
   FormProvider,
@@ -41,7 +41,6 @@ export function ReactHookForm() {
   } = methods;
 
   const onSubmit: SubmitHandler<FormInput> = (data) => {
-    console.log(data);
     setState(data);
     setTimeout(() => {
       setError('name', { message: 'your name sucks' }, { shouldFocus: true });
@@ -55,6 +54,12 @@ export function ReactHookForm() {
   const { fields, remove, append } = useFieldArray({ name: 'items' as never, control });
 
   const [ageWatch] = watch(['age']);
+
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }, []);
 
   return (
     <div>
@@ -70,14 +75,17 @@ export function ReactHookForm() {
               pattern: { value: /^[A-Za-z]+$/, message: 'Only letters!' }
             }}
             render={({ field, fieldState }) => (
-              <TextField
-                variant={'standard'}
-                value={field.value}
-                onChange={field.onChange}
-                inputRef={field.ref}
-                error={Boolean(fieldState.error)}
-                helperText={fieldState.error?.message || ''}
-              />
+              <span id="name-input">
+                <TextField
+                  inputProps={{ 'data-testid': 'name-input' }}
+                  variant={'standard'}
+                  value={field.value}
+                  onChange={field.onChange}
+                  inputRef={field.ref}
+                  error={Boolean(fieldState.error)}
+                  helperText={fieldState.error?.message || ''}
+                />
+              </span>
             )}
           />
           <input
@@ -134,8 +142,8 @@ export function ReactHookForm() {
             })}
           </div>
 
-          <input type="submit" />
-          <p>Result: {JSON.stringify(state, null, 2)}</p>
+          <input data-testid={'submit'} id={'submit'} type="submit" />
+          <p data-testid={'result'}>Result: {JSON.stringify(state)}</p>
           <p>error: {errors.name?.message}</p>
           <p>error: {errors.age?.message}</p>
           <p>isDirty: {isDirty.toString()}</p>
