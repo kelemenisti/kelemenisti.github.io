@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { HashRouter, Link, Route, Routes } from 'react-router-dom';
 import ConditionalRendering from './conditionalRendering/ConditionalRendering';
 import Home from './Home';
 import MainConcepts from './mainConcepts/MainConcepts';
@@ -23,6 +23,7 @@ import { FormValidation } from './formValidation/FormValidation';
 import { MUI } from './mui/MUI';
 import { Button, Drawer, List, ListItem, ThemeProvider } from '@mui/material';
 import { theme } from './mui/MyTheme';
+import { Countdown } from './countdown/Countdown';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -31,7 +32,7 @@ function App() {
   };
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <ThemeProvider theme={theme}>
           <Button id="menu-button" onClick={() => toggleDrawer(true)}>
             Menu
@@ -95,6 +96,9 @@ function App() {
               <ListItem>
                 <Link to="/mui">Material UI</Link>
               </ListItem>
+              <ListItem>
+                <Link to="/countdown">Countdown</Link>
+              </ListItem>
             </List>
           </Drawer>
           <div>
@@ -119,10 +123,11 @@ function App() {
               <Route path="/state-management" element={<StateManagement />} />
               <Route path="/form-validation" element={<FormValidation />} />
               <Route path="/mui" element={<MUI />} />
+              <Route path="/countdown" element={<Countdown />} />
             </Routes>
           </div>
         </ThemeProvider>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
