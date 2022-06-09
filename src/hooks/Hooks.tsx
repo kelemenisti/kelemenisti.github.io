@@ -58,14 +58,12 @@ const Child = React.memo((props: { onClick: () => void }) => {
   return <button onClick={props.onClick}>Increment2</button>;
 });
 
-function useNumberGenerator() {
+export function useNumberGenerator() {
   const [number, setNumber] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
-      setNumber(Math.ceil(Math.random() * 10));
-    }, 3000);
+    setNumber(Math.ceil(Math.random() * 10));
   }, []);
 
-  return number;
+  return { number, setNumber };
 }

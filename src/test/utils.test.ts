@@ -1,4 +1,6 @@
 import { filterMinors, Person } from './utils';
+import { act, renderHook } from '@testing-library/react-hooks';
+import { useNumberGenerator } from '../hooks/Hooks';
 
 export {};
 describe('utils.ts', () => {
@@ -23,5 +25,15 @@ describe('utils.ts', () => {
     expect(() => {
       filterMinors(persons);
     }).toThrowError("person list doesn't have a value");
+  });
+
+  test('should increment counter', () => {
+    const { result } = renderHook(() => useNumberGenerator());
+
+    act(() => {
+      result.current.number;
+    });
+
+    expect(result.current.number).toBe(1);
   });
 });
